@@ -305,7 +305,7 @@
 				$.ajax({
 					type : "POST",
 					contentType : "application/json",
-					url : "/post",
+					url : "/api/calc",
 					data : JSON.stringify(data_set),
 					dataType : 'json',
 					cache : false,
@@ -328,9 +328,9 @@
 					percent = form.elements.plevel.valueAsNumber,
 					date = form.elements.dlevel.valueAsNumber
 
-				var data_output = sendJSONgetJSON({'sum': summa, 'type': type, 'percent': percent, 'date': date})
-
-
+				var data_output = sendJSONgetJSON(
+					{'sum': parseInt(summa), 'type': type, 'percent': percent, 'date': date}
+					)
 			}
 		});
 	}

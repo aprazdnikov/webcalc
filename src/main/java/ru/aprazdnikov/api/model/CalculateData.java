@@ -1,17 +1,16 @@
-package ru.aprazdnikov.webcalc.json;
+package ru.aprazdnikov.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CalculateData {
-
-    private String sum;
+    private Integer sum;
     private String type;
     private Float percent;
     private Integer date;
 
-    public String getSum() { return sum; }
-    public void setSum(String value) { this.sum = value; }
+    public Integer getSum() { return sum; }
+    public void setSum(Integer value) { this.sum = value; }
 
     public String getType() { return type; }
     public void setType(String value) { this.type = value; }
