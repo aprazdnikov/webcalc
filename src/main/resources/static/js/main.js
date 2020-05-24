@@ -302,6 +302,11 @@
 			}
 
 			var sendJSONgetJSON = function (data_set) {
+				var block = $(document.querySelector("#result_calc"))[0],
+					payment = block.getElementsByClassName('payment')[0],
+					percent = block.getElementsByClassName('percent')[0],
+					total = block.getElementsByClassName('total')[0];
+
 				$.ajax({
 					type : "POST",
 					contentType : "application/json",
@@ -312,6 +317,12 @@
 					timeout : 10000,
 					success : function(data) {
 						console.log("SUCCESS: ", data);
+
+						payment.firstElementChild.innerText = data['payments'];
+						percent.firstElementChild.innerText = data['percent'];
+						total.firstElementChild.innerText = data['amount'];
+
+						block.style.display = "block";
 					},
 					error : function(e) {
 						console.log("ERROR: ", e);
@@ -328,9 +339,8 @@
 					percent = form.elements.plevel.valueAsNumber,
 					date = form.elements.dlevel.valueAsNumber
 
-				var data_output = sendJSONgetJSON(
-					{'sum': parseInt(summa), 'type': type, 'percent': percent, 'date': date}
-					)
+				sendJSONgetJSON({'sum': parseInt(summa), 'type': type, 'percent': percent, 'date': date})
+
 			}
 		});
 	}

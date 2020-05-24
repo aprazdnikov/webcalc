@@ -1562,3 +1562,12 @@ input[type=range]:focus::-ms-fill-upper {
   background-color: #ffffff;
   color: #2c98f0;
 }
+
+#result_calc p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#result_calc span {
+  font-weight: 700;
+}
